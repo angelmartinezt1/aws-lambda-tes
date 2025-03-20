@@ -14,7 +14,7 @@ jobs:
 
       - name: Clone `aws-infraestructure`
         run: |
-          git clone https://github.com/mi-org/aws-infraestructure.git
+          git clone https://github.com/angelmartinezt1/aws-infraestructure-test.git
 
       - name: Copy `orders-service` Into `aws-infraestructure/infrastructure/lambda/`
         run: |
