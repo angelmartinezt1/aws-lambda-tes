@@ -16,19 +16,19 @@ jobs:
         run: |
           git clone https://github.com/angelmartinezt1/aws-infraestructure-test.git aws-infraestructure
 
-      - name: Copy `orders-service` Into `aws-infraestructure/infrastructure/lambda/`
+      - name: Copy `orders-service` Into `aws-infraestructure/lambda/`
         run: |
-          rm -rf aws-infraestructure/infrastructure/lambda/orders-service
-          mkdir -p aws-infraestructure/infrastructure/lambda/orders-service
-          rsync -av --progress ./ aws-infraestructure/infrastructure/lambda/orders-service/ --exclude aws-infraestructure
+          rm -rf aws-infraestructure/lambda/orders-service
+          mkdir -p aws-infraestructure/lambda/orders-service
+          rsync -av --progress ./ aws-infraestructure/lambda/orders-service/ --exclude aws-infraestructure
 
       - name: Overwrite `config.json` in `aws-infraestructure/infrastructure/`
         run: |
-          cp -f aws-infraestructure/infrastructure/lambda/orders-service/config.json aws-infraestructure/infrastructure/config.json
+          cp -f aws-infraestructure/lambda/orders-service/config.json aws-infraestructure/infrastructure/config.json
 
       - name: Install Dependencies for Lambda
         run: |
-          cd aws-infraestructure/infrastructure/lambda/orders-service
+          cd aws-infraestructure/lambda/orders-service
           npm install --production
 
       - name: Set up Python
