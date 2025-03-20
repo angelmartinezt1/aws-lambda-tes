@@ -18,17 +18,17 @@ jobs:
 
       - name: Copy `orders-service` Into `aws-infraestructure/lambda/`
         run: |
-          rm -rf aws-infraestructure/lambda/orders-service
-          mkdir -p aws-infraestructure/lambda/orders-service
-          rsync -av --progress ./ aws-infraestructure/lambda/orders-service/ --exclude aws-infraestructure
+          rm -rf aws-infraestructure/lambda
+          mkdir -p aws-infraestructure/lambda
+          rsync -av --progress ./ aws-infraestructure/lambda/ --exclude aws-infraestructure
 
       - name: Overwrite `config.json` in `aws-infraestructure/infrastructure/`
         run: |
-          cp -f aws-infraestructure/lambda/orders-service/config.json aws-infraestructure/infrastructure/config.json
+          cp -f aws-infraestructure/lambda/config.json aws-infraestructure/infrastructure/config.json
 
       - name: Install Dependencies for Lambda
         run: |
-          cd aws-infraestructure/lambda/orders-service
+          cd aws-infraestructure/lambda
           npm install --production
 
       - name: Set up Python
