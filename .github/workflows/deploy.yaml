@@ -41,6 +41,11 @@ jobs:
           cd aws-infraestructure/infrastructure
           pip install -r requirements.txt
 
+      - name: Install AWS CDK
+        run: |
+          npm install -g aws-cdk
+          cdk --version  # Verificar instalación
+
       - name: Deploy Lambda
         run: |
           cd aws-infraestructure
