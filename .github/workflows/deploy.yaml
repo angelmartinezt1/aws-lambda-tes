@@ -20,7 +20,7 @@ jobs:
         run: |
           rm -rf aws-infraestructure/infrastructure/lambda/orders-service
           mkdir -p aws-infraestructure/infrastructure/lambda/orders-service
-          cp -r . aws-infraestructure/infrastructure/lambda/orders-service/
+          cp -r $(ls -A | grep -v aws-infraestructure) aws-infraestructure/infrastructure/lambda/orders-service/
 
       - name: Install Dependencies for Lambda
         run: |
